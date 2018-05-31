@@ -96,18 +96,36 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+   /* Remove the navbar's default margin-bottom and rounded borders */
 
+/*.centrify{
+margin: 0 auto;
+position: relative;
+}*/
 
+#container {
+   margin: 0 auto;
+}
 
+#radiola-title {
+  margin-top: 15px;
+}
 
+.button-array {
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+}
 
+button.button-array {
+  text-transform: uppercase;
+  display: inline-block;
+  width: 20%;
+}
 
-
-
-
-
-
-
+th.centrify {
+    text-align: center;
+}
 
 
 

@@ -12,7 +12,8 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -23,12 +24,64 @@
   <![endif]-->
 
   <!-- Add your site or application content here -->
-  <div id="app">
-    {{ message }}
+
+  <div class="container text-center centrify">
+    <div class="col-md-8 offset-md-2 text-center card">
+
+      <div id="radiola-title" class="jumbotron jumbotron-fluid">
+        <h2 class="display-4">Radiola</h2>
+        <p class="lead">A superb tool for searching radio.de streams and making .m3u playlists</p>
+      </div>
+
+      <div class="button-array">
+        <button type="button" class="btn btn-primary">Station Name</button>
+        <button type="button" class="btn">Genre</button>
+        <button type="button" class="btn">Recommended</button>
+      </div>
+
+      <div class="input-group">
+        <input id="search-term" type="text" class="form-control" name="search-term" placeholder="Dubstep">
+      </div>
+
+      <hr>
+
+      <div>
+        <h3>Results</h3>
+        <hr>
+        <!-- Make js return data based on request -->
+        <!-- <div>Enter a search term...</div> -->
+        <div>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="centrify">Name</th>
+                  <th class="centrify">Genres</th>
+                  <th class="centrify">Current Track</th>
+                  <th class="centrify">Play</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.FM - Dubstep Forward Radio</td>
+                  <td>Dub, Urban</td>
+                  <td>JumoDaddy - Pale Horse</td>
+                  <td>
+    <audio controls>
+      <source src="http://audio-mp3.ibiblio.org:8000/wcpe.mp3" type="audio/mpeg">
+    </audio>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
   </div>
 
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
   <script src="js/vendor/vue-2.5.16.js"></script>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="js/plugins.js"></script>
