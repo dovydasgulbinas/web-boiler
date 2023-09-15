@@ -18,67 +18,74 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
+
 <body>
-  <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
 
-  <!-- Add your site or application content here -->
-
-  <div class="container text-center centrify">
+  <div class="container text-center centrify" id="radioapp">
     <div class="col-md-8 offset-md-2 text-center card">
+
 
       <div id="radiola-title" class="jumbotron jumbotron-fluid">
         <h2 class="display-4">Radiola</h2>
         <p class="lead">A superb tool for searching radio.de streams and making .m3u playlists</p>
       </div>
 
-      <div class="button-array">
-        <button type="button" class="btn btn-primary">Station Name</button>
-        <button type="button" class="btn">Genre</button>
-        <button type="button" class="btn">Recommended</button>
-      </div>
+      <div class="button-array btn-group btn-group-toggle" data-toggle="buttons">
+
+        <label class="btn btn-outline-dark active">
+           <input type="radio" name="options" value="station" v-model="searchMode" name="options" id="optionStation" autocomplete="off"> Station Name
+         </label>
+         <label class="btn btn-outline-dark">
+           <input type="radio" name="options" value="genre" v-model="searchMode" id="optionGenre" autocomplete="off"> Genre
+         </label>
+         <label class="btn btn-outline-dark">
+           <input type="radio" name="options" value="recommended" v-model="searchMode" id="optionRecommended" autocomplete="off"> Recommended
+         </label>
+
+    </div>
+          <div> VALUEEEEE:  {{searchMode}}</div>
 
       <div class="input-group">
-        <input id="search-term" type="text" class="form-control" name="search-term" placeholder="Dubstep">
+        <input id="search-term" type="text" class="form-control centrify" name="search-term" v-on:keyup.enter="onSearchEnter" v-model="searchTerm">
       </div>
 
       <hr>
 
       <div>
         <h3>Results</h3>
-        <hr>
+      <hr>
         <!-- Make js return data based on request -->
         <!-- <div>Enter a search term...</div> -->
         <div>
           <table class="table table-striped">
-              <thead>
-                <tr>
+          <tbody>
+                <tr class="centrify">
+                  <th>No.</th>
                   <th class="centrify">Name</th>
                   <th class="centrify">Genres</th>
                   <th class="centrify">Current Track</th>
                   <th class="centrify">Play</th>
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1.FM - Dubstep Forward Radio</td>
-                  <td>Dub, Urban</td>
-                  <td>JumoDaddy - Pale Horse</td>
+
+                <tr v-for="(item, index) in stations">
+                  <td>{{index + 1}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.genres}}</td>
+                  <td>{{item.currentTrack}}</td>
                   <td>
-    <audio controls>
-      <source src="http://audio-mp3.ibiblio.org:8000/wcpe.mp3" type="audio/mpeg">
-    </audio>
+                <audio controls>
+                    <source :src="item.streamurl" type="audio/mpeg">
+                </audio>
                   </td>
                 </tr>
-              </tbody>
-            </table>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -87,12 +94,6 @@
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 </body>
 
 </html>

@@ -123,12 +123,9 @@ button.button-array {
   width: 20%;
 }
 
-th.centrify {
+.centrify, th.centrify {
     text-align: center;
 }
-
-
-
 
 
 /* ==========================================================================
